@@ -21,7 +21,7 @@ defineProps({
 
 const emit = defineEmits(['delete'])
 
-const span: {value: string} = ref('span')
+const span = ref<HTMLInputElement | null>(null)
 
 function handlerDelete(id:number):void {
     emit('delete', id)

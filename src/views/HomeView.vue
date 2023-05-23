@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import type { IProduct, getAllProductsResponse } from "@/services/api/types";
+import type { IProduct } from "@/services/api/types";
 import ProductItem from "@/components/ProductItem.vue";
 import {getAllProducts} from "@/services/api/ApiService";
 
@@ -21,7 +21,7 @@ export default defineComponent({
     components: {ProductItem},
     data() {
         return {
-            products: Array<IProduct>,
+            products: [] as IProduct[],
         }
     },
     methods: {
@@ -30,7 +30,7 @@ export default defineComponent({
         }
     },
     async mounted() {
-        this.products = await getAllProducts().then((res: {data: getAllProductsResponse}) => res.data.products)
+        this.products = await getAllProducts().then((res) => res.data.products)
     }
 })
 </script>
