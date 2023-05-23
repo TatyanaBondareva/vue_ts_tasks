@@ -21,7 +21,7 @@ export default defineComponent({
     components: {ProductItem},
     data() {
         return {
-            products: Array<IProduct>,
+            products: [] as IProduct[],
         }
     },
     methods: {
